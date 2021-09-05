@@ -28,7 +28,7 @@ ws		{delim}+
 [A-Z][A-Z][A-Z][-][0-9][0-9][0-9][0-9] {printf("Foi encontrado uma placa. LEXEMA: %s\n", yytext);}
 [0-9][0-9][0-9][0-9][-][0-9][0-9][0-9][0-9] {printf("Foi encontrado um telefone. LEXEMA: %s\n",yytext);}
 [+|-]*[0-9]+[.][0-9]+ {printf("Foi encontrado um numero com parte decimal. LEXEMA: %s\n",yytext);}
-[a-zA-Z]+" "[a-zA-Z]+" "[a-zA-Z]+[" "]*[a-zA-Z]* {printf("Foi encontrado um nome proprio. LEXEMA: %s\n",yytext);}
+[a-zA-Z]+{ws}[a-zA-Z]+{ws}[a-zA-Z]+{ws}[a-zA-Z]* {printf("Foi encontrado um nome proprio. LEXEMA: %s\n",yytext);}
 %% 
 
 /*codigo em C. Foi criado o main, mas podem ser criadas outras funcoes aqui.*/ 
