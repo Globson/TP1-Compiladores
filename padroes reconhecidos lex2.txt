@@ -1,0 +1,7 @@
+cpf
+RG
+CNPJ
+telefone com ou sem 9
+email
+horas
+placa padrao mercosul

@@ -16,19 +16,27 @@ ws		{delim}+
 
 
 
-
 %% 
 
 {ws}		{/*nenhuma acao e nenhum retorno*/} 
 
-[a-zA-Z]+ {printf("Foi encontrado uma palavra. LEXEMA: %s\n", yytext);}
-[+][0-9]+ {printf("Foi encontrado um numero inteiro positivo. LEXEMA: %s\n", yytext);}
-[0-9]+ {printf("Foi encontrado um numero inteiro positivo. LEXEMA: %s\n", yytext);}
-[-][0-9]+ {printf("Foi encontrado um numero inteiro negativo. LEXEMA: %s\n", yytext);}
-[A-Z][A-Z][A-Z][-][0-9][0-9][0-9][0-9] {printf("Foi encontrado uma placa. LEXEMA: %s\n", yytext);}
-[0-9][0-9][0-9][0-9][-][0-9][0-9][0-9][0-9] {printf("Foi encontrado um telefone. LEXEMA: %s\n",yytext);}
-[+|-]*[0-9]+[.][0-9]+ {printf("Foi encontrado um numero com parte decimal. LEXEMA: %s\n",yytext);}
-[a-zA-Z]+{ws}[a-zA-Z]+{ws}[a-zA-Z]+{ws}[a-zA-Z]* {printf("Foi encontrado um nome proprio. LEXEMA: %s\n",yytext);}
+[0-9][0-9][0-9][.][0-9][0-9][0-9][.][0-9][0-9][0-9][-][0-9][0-9] {printf("Foi encontrado um CPF. LEXEMA: %s\n", yytext);}
+
+[0-9A-Z][0-9A-Z][0-9A-Z][0-9A-Z][0-9A-Z][0-9A-Z][0-9A-Z] {printf("Foi encontrado uma placa no padrao mercosul. LEXEMA: %s\n", yytext);}
+
+[0-9][0-9][.][0-9][0-9][0-9][.][0-9][0-9][0-9][/][0-9][0-9][0-9][0-9][-][0-9][0-9] {printf("Foi encontrado um CNPJ. LEXEMA: %s\n", yytext);}
+
+[9][0-9][0-9][0-9][0-9][-][0-9][0-9][0-9][0-9] {printf("Foi encontrado um telefone com 9. LEXEMA: %s\n",yytext);}
+
+[0-9][0-9][0-9][0-9][-][0-9][0-9][0-9][0-9] {printf("Foi encontrado um telefone sem o 9. LEXEMA: %s\n",yytext);}
+
+[A-Z]+[-][0-9]+[.][0-9]+[.][0-9]+ {printf("Foi encontrado um RG. LEXEMA: %s\n",yytext);}
+
+[0-9a-zA-Z.]+[@][0-9a-zA-Z]+[.a-zA-Z]+ {printf("Foi encontrado um email. LEXEMA: %s\n",yytext);}
+
+[0-2][0-9][:][0-6][0-9] {printf("Foi encontrado um horario. LEXEMA: %s\n",yytext);}
+
+. {printf("Caracter nao reconhecido!\n");}
 %% 
 
 /*codigo em C. Foi criado o main, mas podem ser criadas outras funcoes aqui.*/ 
