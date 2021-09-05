@@ -44,17 +44,6 @@ ws		{delim}+
 int main(void) 
 { 
     /* Call the lexer, then quit. */ 
-    FILE *f;
-    char nomearquivo[50];
-    printf("Entre com o nome do arquivo de entrada: ");
-    scanf("%s",nomearquivo);
-    f = fopen(nomearquivo,"r");
-    if(f==NULL){
-        printf("Erro!Arquivo nao pode ser aberto!\n");
-        printf("Alternando para entrada padrao...\n");
-    }else{
-        yyin = f;
-    }
     yylex(); 
     return 0; 
 }
